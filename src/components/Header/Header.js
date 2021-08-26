@@ -1,5 +1,7 @@
+import "./Header.css";
+
 const Header = () => {
-  return <div>🎬 Movie Mafia 🎬</div>;
+  return <span className="header">🎬 Movie Mafia 🎬</span>;
 };
 
 export default Header;
