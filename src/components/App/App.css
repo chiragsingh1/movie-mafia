@@ -1,0 +1,13 @@
+.app {
+  min-height: 100vh;
+  background-color: rgb(68, 68, 68);
+  color: rgb(255, 246, 235);
+  padding-top: 120px;
+  padding-bottom: 50px;
+}
+
+@media (max-width: 700px) {
+  .app {
+    padding-top: 70px;
+  }
+}
