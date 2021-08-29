@@ -7,6 +7,8 @@ import axios from "axios";
 import { Button } from "@material-ui/core";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 
+import Carousel from "../Carousel/Carousel";
+
 import {
   img_500,
   unavailable,
@@ -122,6 +124,9 @@ export default function ContentModal({ children, media_type, id }) {
                     <span className="ContentModal__description">
                       {content.overview}
                     </span>
+                    <div>
+                      <Carousel id={id} media_type={media_type} />
+                    </div>
                     <Button
                       variant="contained"
                       startIcon={<YouTubeIcon />}
