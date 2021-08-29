@@ -25,6 +25,7 @@
   .media {
     width: 46%;
     margin-bottom: 20px;
+    width: 150px;
   }
   .media:hover {
     transform: scale(1.02);
