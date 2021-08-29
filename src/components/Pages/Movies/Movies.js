@@ -21,7 +21,7 @@ const Movies = () => {
 
     const { data } = await axios.get(url);
 
-    console.log(data);
+    // console.log(data);
 
     setContent(data.results);
 
@@ -29,7 +29,7 @@ const Movies = () => {
   };
   // rendering the movies
   useEffect(() => {
-    window.scroll(0, 0);
+    // window.scroll(0, 0);
     fetchMovies();
     // eslint-disable-next-line
   }, [page, genreforURL]);
@@ -54,7 +54,7 @@ const Movies = () => {
               poster={c.poster_path}
               title={c.title || c.name}
               date={c.first_air_date || c.release_date}
-              media_type={c.media_type}
+              media_type="movie"
               vote_average={c.vote_average}
             />
           ))}

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import "./Search.css";
 import SearchIcon from "@material-ui/icons/Search";
 import axios from "axios";
 import Card from "../../Card/Card";
@@ -18,7 +18,7 @@ const Search = () => {
   const [type, setType] = useState(0);
   const [page, setPage] = useState(1);
   const [searchText, setSearchText] = useState("");
-  const [content, setContent] = useState();
+  const [content, setContent] = useState([]);
   const [numOfPages, setNumOfPages] = useState();
 
   const darkTheme = createTheme({
@@ -35,7 +35,7 @@ const Search = () => {
       type ? "tv" : "movie"
     }?api_key=${
       process.env.REACT_APP_API_KEY
-    }&language=en-US&query=${searchText}&page=${page}&include_adult=false`;
+    }&language=en-US&query=${searchText}&page=${page}&include_adult=true`;
 
     const { data } = await axios.get(url);
 
@@ -93,7 +93,7 @@ const Search = () => {
               poster={c.poster_path}
               title={c.title || c.name}
               date={c.first_air_date || c.release_date}
-              media_type={c.media_type}
+              media_type={type ? "tv" : "movie"}
               vote_average={c.vote_average}
             />
           ))}
