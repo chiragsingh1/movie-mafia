@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import useGenre from "../../../hooks/useGenre";
 import Card from "../../Card/Card";
 import CustomPagination from "../../CustomPagination/CustomPagination";
 import Genres from "../../Genres/Genres";
@@ -12,11 +13,13 @@ const Movies = () => {
   const [genres, setGenres] = useState([]);
   const [selectedGenres, setSelectedGenres] = useState([]);
 
+  const genreforURL = useGenre(selectedGenres);
+
   // Fetching the movies from the api
   const fetchMovies = async () => {
-    const { data } = await axios.get(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}`
-    );
+    const url = `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=true&include_video=false&page=${page}&with_genres=${genreforURL}`;
+
+    const { data } = await axios.get(url);
 
     console.log(data);
 
@@ -28,7 +31,7 @@ const Movies = () => {
   useEffect(() => {
     fetchMovies();
     // eslint-disable-next-line
-  }, [page]);
+  }, [page, genreforURL]);
 
   return (
     <div>

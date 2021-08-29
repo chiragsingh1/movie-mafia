@@ -11,7 +11,7 @@ const Genres = ({
   setPage,
 }) => {
   const fetchGenres = async () => {
-    const url = `https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_API_KEY}`;
+    const url = `https://api.themoviedb.org/3/genre/${type}/list?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
 
     const { data } = await axios.get(url);
 
@@ -40,7 +40,7 @@ const Genres = ({
     fetchGenres();
 
     return () => {
-      setGenres({});
+      setGenres({}); //unmounting the component
     };
     // eslint-disable-next-line
   }, []);
