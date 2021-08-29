@@ -1,7 +1,7 @@
 const Tv = () => {
   return (
     <div>
-      <span className="pageTitle">Tv</span>
+      <span className="pageTitle">TV 📺</span>
     </div>
   );
 };
